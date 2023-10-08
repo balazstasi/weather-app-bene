@@ -18,6 +18,7 @@
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 2px;
+  color: var(--paynes-gray);
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -29,10 +30,10 @@
   padding-right: 12px;
   outline: none;
   border: 2px solid transparent;
-  color: rgb(112, 76, 182);
+  color: var(--prussian-blue);
   padding-bottom: 4px;
   cursor: pointer;
-  background-color: rgba(112, 76, 182, 0.1);
+  background-color: var(--primary);
   border-radius: 2px;
   transition: all 0.15s;
 }
@@ -43,15 +44,16 @@
   width: 64px;
   text-align: center;
   margin-right: 4px;
+  color: var(--bg);
 }
 
 .button:hover,
 .button:focus {
-  border: 2px solid rgba(112, 76, 182, 0.4);
+  border: 2px solid var(--prussian-blue);
 }
 
 .button:active {
-  background-color: rgba(112, 76, 182, 0.2);
+  background-color: var(--powder-blue);
 }
 
 .asyncButton {
@@ -61,7 +63,8 @@
 
 .asyncButton:after {
   content: "";
-  background-color: rgba(112, 76, 182, 0.15);
+  color: var(--bg);
+  background-color: var(--paynes-gray);
   display: block;
   position: absolute;
   width: 100%;

@@ -33,6 +33,6 @@ _Please, send your solution as a .zip file to the following email address: vikto
 
 # Screens how the app should look like
 
- <img src="/Users/balazstasi/Documents/GitHub/weather-app-bene/_spec/screen__1.png " width=33% height=33%>
- <img src="/Users/balazstasi/Documents/GitHub/weather-app-bene/_spec/screen__2.png " width=33% height=33%>
- <img src="/Users/balazstasi/Documents/GitHub/weather-app-bene/_spec/screen__3.png " width=33% height=33%>
+ <img src="/Users/balazstasi/Documents/GitHub/weather-app-bene/_spec/screen__1.png ">
+ <img src="/Users/balazstasi/Documents/GitHub/weather-app-bene/_spec/screen__2.png ">
+ <img src="/Users/balazstasi/Documents/GitHub/weather-app-bene/_spec/screen__3.png ">

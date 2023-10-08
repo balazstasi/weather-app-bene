@@ -1,3 +1,15 @@
+:root {
+  /* Color Palette */
+  --steel-blue: #277dbdff;
+  --powder-blue: #91b7ccff;
+  --bondi-blue: #368eabff;
+  --gunmetal: #142534ff;
+  --yale-blue: #023774ff;
+
+  --background: var(--gunmetal);
+  --text: var(--powder-blue);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,4 +22,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Global Styles */
+
+/* Global background */
+body {
+  background-color: var(--bg);
 }
