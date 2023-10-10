@@ -8,7 +8,7 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
-    "types": ["testing-library__jest-dom", "@emotion/react"],
+    "types": ["testing-library__jest-dom"],
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,

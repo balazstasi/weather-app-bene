@@ -1,7 +1,6 @@
-import React, { useContext } from "react"
 import "./App.css"
 import { styled } from "@linaria/react"
-import { Outlet, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import { HomeScreen } from "@/screens/home-screen"
 import { SearchScreen } from "@/screens/search-screen"
 import { WeatherScreen } from "@/screens/weather-screen"

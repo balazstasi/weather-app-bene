@@ -14,7 +14,13 @@ export default defineConfig({
     }),
   ],
   server: {
-    open: true,
+    open: false,
+    watch: {
+      usePolling: true,
+    },
+    host: true,
+    port: 8000,
+    strictPort: true,
   },
   build: {
     outDir: "build",
@@ -26,6 +32,7 @@ export default defineConfig({
     setupFiles: "src/setupTests",
     mockReset: true,
   },
+
   /* Aliasing */
   resolve: {
     alias: {
