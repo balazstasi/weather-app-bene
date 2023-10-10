@@ -32,9 +32,9 @@ const CityName = styled.h1`
 `
 
 type CityLabelProps = {
-  city: string
+  city?: string
 }
 export const CityLabel = (props: CityLabelProps) => {
   const { city } = props
-  return <CityName>{city}</CityName>
+  return <CityName>{city ?? "No name"}</CityName>
 }

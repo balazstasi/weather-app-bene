@@ -1,10 +1,10 @@
 import { CenterTop } from "@/components/ui/center-top"
-import { SavedCities } from "@/features/saved-cities/saved-cities"
+import { Weather } from "@/components/composed/saved-city-list"
 
 export function HomeScreen() {
   return (
     <CenterTop>
-      <SavedCities />
+      <Weather />
     </CenterTop>
   )
 }

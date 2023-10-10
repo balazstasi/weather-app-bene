@@ -1,18 +1,27 @@
-import React from "react"
+import React, { Children } from "react"
 import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
-import { store } from "./app/store"
 import App from "./App"
 import "./index.css"
-import Router from "@/utils/router/use-router"
-import { NavigationProvider } from "@/utils/router/router"
+import store from "@/app/store"
+import { RouterProvider } from "react-aria"
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom"
+import { HomeScreen } from "@/screens/home-screen"
+import { SearchScreen } from "@/screens/search-screen"
+import { WeatherScreen } from "@/screens/weather-screen"
+import { styled } from "@linaria/react"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <NavigationProvider>
+      <BrowserRouter>
         <App />
-      </NavigationProvider>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
 )

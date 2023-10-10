@@ -1,13 +1,31 @@
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
-import counterReducer from "../features/counter/counterSlice"
-import savedCitiesReducer from "@/features/saved-cities/saved-cities.slice"
+import { Action, ThunkAction, configureStore } from "@reduxjs/toolkit"
+import { persistReducer, persistStore } from "redux-persist"
+import storage from "redux-persist/lib/storage"
+import weatherReducer from "@/features/weather/weather.slice"
+import { emptySplitApi } from "@/api"
 
-export const store = configureStore({
+const persistConfig = {
+  key: "root",
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, weatherReducer)
+
+const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    savedCities: savedCitiesReducer,
+    weather: persistedReducer,
+    [emptySplitApi.reducerPath]: emptySplitApi.reducer,
   },
+
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ["persist/PERSIST"],
+      },
+    }).concat(emptySplitApi.middleware),
 })
+
+export const persistor = persistStore(store)
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
@@ -17,3 +35,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >
+
+export default store
