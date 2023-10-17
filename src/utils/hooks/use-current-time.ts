@@ -32,8 +32,8 @@ export const useCurrentTime = ({
   }, [offset, starting, constant])
 
   return {
-    formatted: useCallback(
-      (formatString = null) =>
+    format: useCallback(
+      (formatString?: string) =>
         constant
           ? constantTime.toFormat(!formatString ? "HH:mm:ss" : formatString)
           : currentTime
@@ -41,6 +41,6 @@ export const useCurrentTime = ({
               .toFormat(!formatString ? "HH:mm:ss" : formatString),
       [constant, constantTime, currentTime, offset, starting],
     ),
-    currentTime: constant ? constantTime : currentTime,
+    time: constant ? constantTime : currentTime,
   }
 }
