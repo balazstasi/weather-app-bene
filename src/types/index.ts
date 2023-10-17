@@ -15,6 +15,7 @@ type SunHours = {
   sunset: number
   country: string
 }
+
 interface WeatherObject {
   id: number
   main: string

@@ -41,10 +41,14 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
   )
   const timezoneOffset = weatherData?.timezone ?? 0
 
-  const { currentTime } = useCurrentTime({
+  const { currentTime, formatted } = useCurrentTime({
     offset: timezoneOffset,
     starting: 0,
   })
+  console.log(
+    "🚀 ~ file: weather-info.tsx:48 ~ WeatherInfo ~ currentTime:",
+    formatted,
+  )
 
   const { formatted: sunsetTime } = useCurrentTime({
     offset: timezoneOffset,
@@ -82,6 +86,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
         )}
         <CurrentTime>{currentTime.toFormat("HH")}</CurrentTime>
         <CurrentTime>{currentTime.toFormat("mm")}</CurrentTime>
+        <CurrentTime>{currentTime.toFormat("ss")}</CurrentTime>
       </CurrentTimeWrapper>
       <SpaceVertical height={8} />
       <CityLabel city={city} />
