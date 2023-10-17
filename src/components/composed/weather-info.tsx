@@ -101,7 +101,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Sunrise />
           </SvgIcon>
           <AdditionalWeatherDataLabel>
-            {sunriseTime()}
+            {sunriseTime("HH:mm")}
           </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
         <SpaceVertical height={16} />
@@ -111,7 +111,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Sunset />
           </SvgIcon>
           <AdditionalWeatherDataLabel>
-            {sunsetTime()}
+            {sunsetTime("HH:mm")}
           </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
       </AdditionalWeatherDataWrapper>
