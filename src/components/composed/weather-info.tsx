@@ -45,10 +45,6 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
     offset: timezoneOffset,
     starting: 0,
   })
-  console.log(
-    "🚀 ~ file: weather-info.tsx:48 ~ WeatherInfo ~ currentTime:",
-    formatted,
-  )
 
   const { formatted: sunsetTime } = useCurrentTime({
     offset: timezoneOffset,
@@ -84,9 +80,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Check />
           </SvgIcon>
         )}
-        <CurrentTime>{currentTime.toFormat("HH")}</CurrentTime>
-        <CurrentTime>{currentTime.toFormat("mm")}</CurrentTime>
-        <CurrentTime>{currentTime.toFormat("ss")}</CurrentTime>
+        <CurrentTime>{formatted()}</CurrentTime>
       </CurrentTimeWrapper>
       <SpaceVertical height={8} />
       <CityLabel city={city} />
@@ -106,7 +100,9 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
           <SvgIcon>
             <Sunrise />
           </SvgIcon>
-          <AdditionalWeatherDataLabel>{sunriseTime}</AdditionalWeatherDataLabel>
+          <AdditionalWeatherDataLabel>
+            {sunriseTime()}
+          </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
         <SpaceVertical height={16} />
 
@@ -114,7 +110,9 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
           <SvgIcon>
             <Sunset />
           </SvgIcon>
-          <AdditionalWeatherDataLabel>{sunsetTime}</AdditionalWeatherDataLabel>
+          <AdditionalWeatherDataLabel>
+            {sunsetTime()}
+          </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
       </AdditionalWeatherDataWrapper>
     </div>

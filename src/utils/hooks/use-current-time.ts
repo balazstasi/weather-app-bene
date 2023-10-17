@@ -28,10 +28,7 @@ export const useCurrentTime = ({
   return {
     formatted: useCallback(
       () =>
-        currentTime
-          .plus({ seconds: offset })
-          .plus({ seconds: starting })
-          .toFormat("HH:mm:ss"),
+        currentTime.plus({ seconds: starting + offset }).toFormat("HH:mm:ss"),
       [currentTime, offset, starting],
     ),
     currentTime,
