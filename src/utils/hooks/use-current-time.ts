@@ -19,7 +19,7 @@ export const useCurrentTime = ({
 }) => {
   const [currentTime, setCurrentTime] = useState(DateTime.utc())
   const constantTime = useMemo(() => {
-    return DateTime.utc().plus({ seconds: starting + offset })
+    return DateTime.fromSeconds(starting + offset)
   }, [offset, starting])
 
   useEffect(() => {
@@ -34,8 +34,12 @@ export const useCurrentTime = ({
   return {
     formatted: useCallback(
       () =>
-        currentTime.plus({ seconds: starting + offset }).toFormat("HH:mm:ss"),
-      [currentTime, offset, starting],
+        constant
+          ? constantTime.toFormat("HH:mm:ss")
+          : currentTime
+              .plus({ seconds: starting + offset })
+              .toFormat("HH:mm:ss"),
+      [constant, constantTime, currentTime, offset, starting],
     ),
     currentTime: constant ? constantTime : currentTime,
   }

@@ -46,13 +46,13 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
     starting: 0,
   })
 
-  const { currentTime: sunsetTime } = useCurrentTime({
+  const { formatted: sunsetTime } = useCurrentTime({
     offset: timezoneOffset,
     starting: weatherData?.sys?.sunset ?? 0,
     constant: true,
   })
 
-  const { currentTime: sunriseTime } = useCurrentTime({
+  const { formatted: sunriseTime } = useCurrentTime({
     offset: timezoneOffset,
     starting: weatherData?.sys?.sunrise ?? 0,
     constant: true,
@@ -103,7 +103,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Sunrise />
           </SvgIcon>
           <AdditionalWeatherDataLabel>
-            {sunriseTime.toFormat("HH:mm")}
+            {sunriseTime()}
           </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
         <SpaceVertical height={16} />
@@ -113,7 +113,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Sunset />
           </SvgIcon>
           <AdditionalWeatherDataLabel>
-            {sunsetTime.toFormat("HH:mm")}
+            {sunsetTime()}
           </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
       </AdditionalWeatherDataWrapper>
