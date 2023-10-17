@@ -5,6 +5,38 @@ import {
   Text,
 } from "react-aria-components"
 
+type SearchInputProps = {
+  value: string
+  setValue: (value: string) => void
+  errorMessage: string
+}
+export const SearchInput = (props: SearchInputProps) => {
+  const { value, setValue, errorMessage } = props
+
+  return (
+    <TextField
+      aria-errormessage={errorMessage}
+      aria-label="Search City"
+      aria-autocomplete="list"
+    >
+      <div style={{ display: "flex" }}>
+        <Input
+          id="cities"
+          aria-autocomplete="list"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <ArrowDown />
+      </div>
+      {errorMessage && (
+        <Text slot="errorMessage" style={{ fontSize: "24px" }}>
+          {errorMessage}
+        </Text>
+      )}
+    </TextField>
+  )
+}
+
 const TextField = styled(AriaTextField)`
   background: none;
   border: none;
@@ -67,35 +99,3 @@ const ArrowDown = styled.i`
     border-color: solid var(--powder-blue);
   }
 `
-
-type SearchInputProps = {
-  value: string
-  setValue: (value: string) => void
-  errorMessage: string
-}
-export const SearchInput = (props: SearchInputProps) => {
-  const { value, setValue, errorMessage } = props
-
-  return (
-    <TextField
-      aria-errormessage={errorMessage}
-      aria-label="Search City"
-      aria-autocomplete="list"
-    >
-      <div style={{ display: "flex" }}>
-        <Input
-          id="cities"
-          aria-autocomplete="list"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <ArrowDown />
-      </div>
-      {errorMessage && (
-        <Text slot="errorMessage" style={{ fontSize: "24px" }}>
-          {errorMessage}
-        </Text>
-      )}
-    </TextField>
-  )
-}

@@ -4,7 +4,6 @@ import { PlusButton } from "@/components/ui/plus-button"
 import { SpaceVertical } from "@/components/ui/space-vertical"
 import { weatherSelectors } from "@/features/weather/weather.slice"
 import { IWeatherData } from "@/types"
-
 import { useNavigate } from "react-router-dom"
 
 export const Weather = () => {

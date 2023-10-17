@@ -7,9 +7,15 @@ import { useMemo } from "react"
  * @param {string[]} dataSet - The array of strings to search through.
  * @param {string} query - The query string to search for.
  * @param {number} [maxResults=8] - The maximum number of results to return. Defaults to 8.
- * @return {Object} An object containing the search results.
+ * @return {string[]} An object containing the search results.
  */
-const useFuzzySearch = (dataSet: string[], query: string, maxResults = 8) => {
+const useFuzzySearch = (
+  dataSet: string[],
+  query: string,
+  maxResults: number = 8,
+): {
+  results: string[]
+} => {
   const fuzzy = useMemo(() => new Fuse(dataSet, { threshold: 0.05 }), [dataSet])
 
   const results = fuzzy
@@ -20,6 +26,8 @@ const useFuzzySearch = (dataSet: string[], query: string, maxResults = 8) => {
 
   return {
     results,
+  } as {
+    results: string[]
   }
 }
 

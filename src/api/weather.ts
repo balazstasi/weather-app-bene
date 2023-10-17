@@ -16,7 +16,7 @@ const weatherApi = emptySplitApi.injectEndpoints({
        * @param {string} cityName - The name of the city for which weather information is to be queried.
        * @return {string} The URL for querying weather information.
        */
-      query: (cityName) => {
+      query: (cityName: string): string => {
         if (!cityName) return ""
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${
           import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY

@@ -16,7 +16,10 @@ const weatherSlice = createSlice({
      * @param {any} state - The current state.
      * @param {PayloadAction<IWeatherData>} action - The action containing the city data to be added.
      */
-    addCity: (state, action: PayloadAction<IWeatherData>) => {
+    addCity: (
+      state: { entities: IWeatherData[] },
+      action: PayloadAction<IWeatherData>,
+    ) => {
       if (state.entities.find((city) => city.id === action.payload.id)) {
         return
       }

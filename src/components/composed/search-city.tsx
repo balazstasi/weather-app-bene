@@ -5,14 +5,6 @@ import { useFuzzySearch } from "@/utils/hooks/use-fuzzy-search"
 import { styled } from "@linaria/react"
 import { useEffect, useState } from "react"
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
-`
-
 export const SearchCity = () => {
   const [value, setValue] = useState("")
   const [errorMessage, setErrorMessage] = useState<string>("")
@@ -39,3 +31,11 @@ export const SearchCity = () => {
     </Container>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+`

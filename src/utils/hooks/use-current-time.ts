@@ -13,7 +13,7 @@ export const useCurrentTime = ({
 }: {
   offset: number
   starting: number
-}) => {
+}): object => {
   let currentTime = DateTime.utc()
   if (starting > 0) {
     currentTime = DateTime.fromSeconds(starting)

@@ -24,9 +24,6 @@ code {
     monospace;
 }
 
-/* Global Styles */
-
-/* Global background */
 body {
   background-color: var(--bg);
 }

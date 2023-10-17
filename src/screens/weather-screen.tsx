@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom"
 export function WeatherScreen() {
   const params = useParams()
   const city = params.city
-  console.log("🚀 ~ file: weather-screen.tsx:8 ~ WeatherScreen ~ city:", city)
 
   return (
     <CenterTop>
