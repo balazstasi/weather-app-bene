@@ -47,13 +47,11 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
   })
 
   const { formatted: sunsetTime } = useCurrentTime({
-    offset: timezoneOffset,
     starting: weatherData?.sys?.sunset ?? 0,
     constant: true,
   })
 
   const { formatted: sunriseTime } = useCurrentTime({
-    offset: timezoneOffset,
     starting: weatherData?.sys?.sunrise ?? 0,
     constant: true,
   })

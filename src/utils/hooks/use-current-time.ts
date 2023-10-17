@@ -9,11 +9,11 @@ import { useCallback, useEffect, useMemo, useState } from "react"
  * @return {object} An object containing the formatted current time in "HH:mm" format and the current time as a DateTime object.
  */
 export const useCurrentTime = ({
-  offset,
+  offset = 0,
   starting,
   constant = false,
 }: {
-  offset: number
+  offset?: number
   starting: number
   constant?: boolean
 }) => {
