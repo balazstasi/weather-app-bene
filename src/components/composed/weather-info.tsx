@@ -41,7 +41,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
   )
   const timezoneOffset = weatherData?.timezone ?? 0
 
-  const { formatted } = useCurrentTime({
+  const { formatted: currentTime } = useCurrentTime({
     offset: timezoneOffset,
     starting: 0,
   })
@@ -82,7 +82,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Check />
           </SvgIcon>
         )}
-        <CurrentTime>{formatted()}</CurrentTime>
+        <CurrentTime>{currentTime()}</CurrentTime>
       </CurrentTimeWrapper>
       <SpaceVertical height={8} />
       <CityLabel city={city} />
