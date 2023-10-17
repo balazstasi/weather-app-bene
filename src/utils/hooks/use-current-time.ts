@@ -11,19 +11,25 @@ import { useCallback, useEffect, useState } from "react"
 export const useCurrentTime = ({
   offset,
   starting,
+  constant = false,
 }: {
   offset: number
   starting: number
+  constant?: boolean
 }) => {
   const [currentTime, setCurrentTime] = useState(DateTime.utc())
 
   useEffect(() => {
+    if (constant) {
+      setCurrentTime(DateTime.utc().plus({ seconds: starting + offset }))
+      return
+    }
     const id = setInterval(() => {
       setCurrentTime(DateTime.utc())
     }, 1000)
 
     return () => clearTimeout(id)
-  }, [offset, starting])
+  }, [offset, starting, constant])
 
   return {
     formatted: useCallback(

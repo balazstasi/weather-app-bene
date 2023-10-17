@@ -41,19 +41,21 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
   )
   const timezoneOffset = weatherData?.timezone ?? 0
 
-  const { currentTime, formatted } = useCurrentTime({
+  const { formatted } = useCurrentTime({
     offset: timezoneOffset,
     starting: 0,
   })
 
-  const { formatted: sunsetTime } = useCurrentTime({
+  const { currentTime: sunsetTime } = useCurrentTime({
     offset: timezoneOffset,
     starting: weatherData?.sys?.sunset ?? 0,
+    constant: true,
   })
 
-  const { formatted: sunriseTime } = useCurrentTime({
+  const { currentTime: sunriseTime } = useCurrentTime({
     offset: timezoneOffset,
     starting: weatherData?.sys?.sunrise ?? 0,
+    constant: true,
   })
 
   const temperature = convertFtoC(weatherData?.main.temp ?? 0)
@@ -101,7 +103,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Sunrise />
           </SvgIcon>
           <AdditionalWeatherDataLabel>
-            {sunriseTime()}
+            {sunriseTime.toFormat("HH:mm")}
           </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
         <SpaceVertical height={16} />
@@ -111,7 +113,7 @@ export const WeatherInfo = (props: WeatherInfoProps) => {
             <Sunset />
           </SvgIcon>
           <AdditionalWeatherDataLabel>
-            {sunsetTime()}
+            {sunsetTime.toFormat("HH:mm")}
           </AdditionalWeatherDataLabel>
         </AdditionalWeatherData>
       </AdditionalWeatherDataWrapper>
