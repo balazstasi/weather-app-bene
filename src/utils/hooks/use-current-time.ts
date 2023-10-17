@@ -1,5 +1,5 @@
 import { DateTime } from "luxon"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 
 /**
  * Generates the current time based on the given offset and starting time.
@@ -18,11 +18,12 @@ export const useCurrentTime = ({
   constant?: boolean
 }) => {
   const [currentTime, setCurrentTime] = useState(DateTime.utc())
+  const constantTime = useMemo(() => {
+    return DateTime.utc().plus({ seconds: starting + offset })
+  }, [offset, starting])
 
   useEffect(() => {
-    if (constant) {
-      return
-    }
+    if (constant) return
     const id = setInterval(() => {
       setCurrentTime(DateTime.utc())
     }, 1000)
@@ -36,8 +37,6 @@ export const useCurrentTime = ({
         currentTime.plus({ seconds: starting + offset }).toFormat("HH:mm:ss"),
       [currentTime, offset, starting],
     ),
-    currentTime: constant
-      ? currentTime.plus({ seconds: starting + offset })
-      : currentTime,
+    currentTime: constant ? constantTime : currentTime,
   }
 }
